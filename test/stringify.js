@@ -120,6 +120,14 @@ describe('JSON5', () => {
             })
         })
 
+        describe('bigints', () => {
+            it('throws on bigints', () => {
+                assert.throws(() => {
+                    JSON5.stringify(BigInt(1))
+                }, /BigInt/)
+            })
+        })
+
         describe('strings', () => {
             it('stringifies single quoted strings', () => {
                 assert.strictEqual(JSON5.stringify('abc'), "'abc'")
